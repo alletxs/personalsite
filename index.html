@@ -89,32 +89,34 @@
     </header>
 
     <main>
-        <!-- Interactive Button Section -->
         <section class="card">
             <h2>Click the Button Below!</h2>
             <button id="navigateBtn">Click Me</button>
             <p id="interactiveText">👀</p>
         </section>
 
-        <!-- About Me Section -->
         <section class="card">
             <h2>About Me</h2>
             <p>....🚀</p>
         </section>
 
-        <!-- Resources Section (hidden initially) -->
+        <!-- Hidden section for resources -->
         <section class="card" id="resources">
             <h2>Resources</h2>
             <p>Access your study materials below! 📚</p>
 
-            <!-- Notes Section: Combined general and personal notes -->
-            <button onclick="window.open('pdfs/dpp1.pdf', '_blank')">📄 DPPs</button>
-            <button onclick="window.open('pdfs/notes1.pdf', '_blank')">📚 General Notes</button>
-            <button onclick="window.open('file:///C:/Users/pc/Desktop/Personal%20website/personal/notes1.pdf', '_blank')">📚 Personal Notes</button>
+            <!-- Link to DPP Folder -->
+            <button onclick="window.open('https://drive.google.com/drive/folders/1mClcQjoHDLT1XGc0-Kai6Z3TLkXASBpC?usp=drive_link', '_blank')">📄 DPPs</button>
 
-            <!-- Lectures Section: Combined general and personal lecture videos -->
-            <button onclick="window.open('videos/lecture1.mp4', '_blank')">🎥 General Lecture 1</button>
-            <button onclick="window.open('file:///C:/Users/pc/Desktop/Personal%20website/personal/videos/lecture1.mp4', '_blank')">🎥 Personal Lecture 1</button>
+            <!-- Link to Notes Folder -->
+            <button onclick="window.open('https://drive.google.com/drive/folders/1mBuJiM2KWkbbz3R32EIXQVUZStMDWXA8?usp=drive_link', '_blank')">📚 Notes</button>
+
+            <!-- Link to Videos Folder -->
+            <button onclick="window.open('https://drive.google.com/drive/folders/1m-xUC1UHqq5G0OWLTErnin67k9flxfE2?usp=drive_link', '_blank')">🎥 Lectures</button>
+
+            <!-- Modified buttons for personal files -->
+            <button onclick="window.open('file:///C:/Users/pc/Desktop/Personal%20website/personal/videos/lecture1.mp4', '_blank')">🎥 Open Lecture 1 (Personal)</button>
+            <button onclick="window.open('file:///C:/Users/pc/Desktop/Personal%20website/personal/notes1.pdf', '_blank')">📚 Open Notes1 (Personal)</button>
         </section>
     </main>
 
