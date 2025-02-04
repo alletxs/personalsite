@@ -3,11 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Interactive Website</title>
-
-    <!-- Internal CSS -->
+    <title>Galactic Hub</title>
     <style>
-        /* General Reset */
         * {
             margin: 0;
             padding: 0;
@@ -15,127 +12,77 @@
             font-family: 'Arial', sans-serif;
         }
 
-        /* Body Styling */
         body {
+            background: black;
+            overflow: hidden;
+            color: white;
             text-align: center;
-            background: linear-gradient(135deg, #f6d365 0%, #fda085 100%);
-            color: #333;
-            padding: 20px;
         }
 
-        /* Header */
+        /* Starfield Animation */
+        .stars {
+            width: 100%;
+            height: 100vh;
+            background: url('https://source.unsplash.com/1600x900/?stars') repeat;
+            animation: starsAnimation 50s linear infinite;
+            position: absolute;
+        }
+
+        @keyframes starsAnimation {
+            from {background-position: 0 0;}
+            to {background-position: 10000px 10000px;}
+        }
+
+        /* Glowing Header */
         header {
-            background-color: rgba(255, 255, 255, 0.8);
             padding: 20px;
-            border-radius: 10px;
-            margin-bottom: 20px;
-            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            font-size: 2rem;
+            text-shadow: 0 0 20px cyan;
         }
 
-        .subtext {
-            font-size: 1.2rem;
-            color: #555;
+        /* Planet */
+        .planet {
+            width: 150px;
+            height: 150px;
+            background: radial-gradient(circle, #ffcc00, #ff6600);
+            border-radius: 50%;
+            position: absolute;
+            top: 20%;
+            left: 40%;
+            animation: planetOrbit 8s linear infinite;
         }
 
-        /* Content Cards */
-        .card {
-            background: white;
-            padding: 20px;
-            margin: 15px auto;
-            border-radius: 10px;
-            max-width: 500px;
-            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+        @keyframes planetOrbit {
+            0% { transform: rotate(0deg) translateX(50px) rotate(0deg); }
+            100% { transform: rotate(360deg) translateX(50px) rotate(-360deg); }
         }
 
         /* Button */
         button {
-            padding: 12px 20px;
-            background: #ff7675;
+            padding: 15px;
+            background: rgba(0, 191, 255, 0.8);
             color: white;
             border: none;
-            border-radius: 5px;
-            margin-top: 15px;
-            cursor: pointer;
+            border-radius: 10px;
             font-size: 1rem;
+            cursor: pointer;
             transition: 0.3s;
-            display: block;
-            width: 100%;
+            margin-top: 20px;
+            box-shadow: 0 0 10px cyan;
         }
 
         button:hover {
-            background: #d63031;
+            background: #00ffff;
             transform: scale(1.1);
-        }
-
-        /* Footer */
-        footer {
-            margin-top: 20px;
-            background: rgba(0, 0, 0, 0.1);
-            padding: 10px;
-            border-radius: 5px;
-            font-size: 0.9rem;
-        }
-
-        /* Hide resources section initially */
-        #resources {
-            display: none;
+            box-shadow: 0 0 20px cyan;
         }
     </style>
 </head>
 <body>
-    <header>
-        <h1>Welcome</h1>
-        <p class="subtext">✨</p>
-    </header>
-
-    <main>
-        <section class="card">
-            <h2>Click the Button Below!</h2>
-            <button id="navigateBtn">Click Me</button>
-            <p id="interactiveText">👀</p>
-        </section>
-
-        <section class="card">
-            <h2>About Me</h2>
-            <p>....🚀</p>
-        </section>
-
-        <!-- Hidden section for resources -->
-        <section class="card" id="resources">
-            <h2>Resources</h2>
-            <p>Access your study materials below! 📚</p>
-
-            <!-- Link to DPP Folder -->
-            <button onclick="window.open('https://drive.google.com/drive/folders/1mClcQjoHDLT1XGc0-Kai6Z3TLkXASBpC?usp=drive_link', '_blank')">📄 DPPs</button>
-
-            <!-- Link to Notes Folder -->
-            <button onclick="window.open('https://drive.google.com/drive/folders/1mBuJiM2KWkbbz3R32EIXQVUZStMDWXA8?usp=drive_link', '_blank')">📚 Notes</button>
-
-            <!-- Link to Videos Folder -->
-            <button onclick="window.open('https://drive.google.com/drive/folders/1m-xUC1UHqq5G0OWLTErnin67k9flxfE2?usp=drive_link', '_blank')">🎥 Lectures</button>
-        </section>
-    </main>
-
-    <footer>
-        <p>&copy; 2025 | Created with ❤️ by m4nsii</p>
-    </footer>
-
-    <!-- Internal JavaScript -->
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            const navigateBtn = document.getElementById("navigateBtn");
-            const interactiveText = document.getElementById("interactiveText");
-            const resourcesSection = document.getElementById("resources");
-
-            navigateBtn.addEventListener("click", function() {
-                interactiveText.textContent = "You clicked the button! 🎉";
-                navigateBtn.textContent = "Resources Opened!";
-                navigateBtn.style.backgroundColor = "#6c5ce7";
-
-                // Show resources section
-                resourcesSection.style.display = "block";
-            });
-        });
-    </script>
+    <div class="stars"></div>
+    <div class="planet"></div>
+    <header>Welcome.... 🚀</header>
+    <p>yoooo.</p>
+    <button onclick="alert('Warp Drive Activated!')">Engage Warp Drive</button>
 </body>
 </html>
