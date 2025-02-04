@@ -18,59 +18,39 @@
         /* Body Styling */
         body {
             text-align: center;
-            background: black;
-            color: white;
+            background: linear-gradient(135deg, #f6d365 0%, #fda085 100%);
+            color: #333;
             padding: 20px;
-            overflow: hidden;
-            position: relative;
-        }
-
-        /* Star Background */
-        body::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url('https://cdn.pixabay.com/photo/2016/11/18/23/29/background-1839131_960_720.png') repeat;
-            animation: stars 50s linear infinite;
-            z-index: -1;
-        }
-
-        @keyframes stars {
-            from { background-position: 0 0; }
-            to { background-position: 10000px 10000px; }
         }
 
         /* Header */
         header {
-            background-color: rgba(255, 255, 255, 0.1);
+            background-color: rgba(255, 255, 255, 0.8);
             padding: 20px;
             border-radius: 10px;
             margin-bottom: 20px;
-            box-shadow: 0px 4px 6px rgba(255, 255, 255, 0.2);
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
         }
 
         .subtext {
             font-size: 1.2rem;
-            color: #aaa;
+            color: #555;
         }
 
         /* Content Cards */
         .card {
-            background: rgba(255, 255, 255, 0.1);
+            background: white;
             padding: 20px;
             margin: 15px auto;
             border-radius: 10px;
             max-width: 500px;
-            box-shadow: 0px 4px 8px rgba(255, 255, 255, 0.2);
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
         }
 
         /* Button */
         button {
             padding: 12px 20px;
-            background: #6c5ce7;
+            background: #ff7675;
             color: white;
             border: none;
             border-radius: 5px;
@@ -83,14 +63,14 @@
         }
 
         button:hover {
-            background: #a29bfe;
+            background: #d63031;
             transform: scale(1.1);
         }
 
         /* Footer */
         footer {
             margin-top: 20px;
-            background: rgba(255, 255, 255, 0.1);
+            background: rgba(0, 0, 0, 0.1);
             padding: 10px;
             border-radius: 5px;
             font-size: 0.9rem;
@@ -105,19 +85,19 @@
 <body>
     <header>
         <h1>Welcome</h1>
-        <p class="subtext">✨ Exploring the Cosmos ✨</p>
+        <p class="subtext">✨</p>
     </header>
 
     <main>
         <section class="card">
             <h2>Click the Button Below!</h2>
-            <button id="navigateBtn">Launch 🚀</button>
+            <button id="navigateBtn">Click Me</button>
             <p id="interactiveText">👀</p>
         </section>
 
         <section class="card">
             <h2>About Me</h2>
-            <p>Lost in space... 🚀</p>
+            <p>....🚀</p>
         </section>
 
         <!-- Hidden section for resources -->
@@ -148,9 +128,9 @@
             const resourcesSection = document.getElementById("resources");
 
             navigateBtn.addEventListener("click", function() {
-                interactiveText.textContent = "Warping to Resources! 🌌";
-                navigateBtn.textContent = "Engage!";
-                navigateBtn.style.backgroundColor = "#d63031";
+                interactiveText.textContent = "You clicked the button! 🎉";
+                navigateBtn.textContent = "Resources Opened!";
+                navigateBtn.style.backgroundColor = "#6c5ce7";
 
                 // Show resources section
                 resourcesSection.style.display = "block";
