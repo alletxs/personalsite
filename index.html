@@ -3,8 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Galactic Hub</title>
+    <title>My Interactive Website</title>
+
+    <!-- Internal CSS -->
     <style>
+        /* General Reset */
         * {
             margin: 0;
             padding: 0;
@@ -12,77 +15,147 @@
             font-family: 'Arial', sans-serif;
         }
 
+        /* Body Styling */
         body {
-            background: black;
-            overflow: hidden;
-            color: white;
             text-align: center;
-        }
-
-        /* Starfield Animation */
-        .stars {
-            width: 100%;
-            height: 100vh;
-            background: url('https://source.unsplash.com/1600x900/?stars') repeat;
-            animation: starsAnimation 50s linear infinite;
-            position: absolute;
-        }
-
-        @keyframes starsAnimation {
-            from {background-position: 0 0;}
-            to {background-position: 10000px 10000px;}
-        }
-
-        /* Glowing Header */
-        header {
+            background: black;
+            color: white;
             padding: 20px;
-            font-size: 2rem;
-            text-shadow: 0 0 20px cyan;
+            overflow: hidden;
+            position: relative;
         }
 
-        /* Planet */
-        .planet {
-            width: 150px;
-            height: 150px;
-            background: radial-gradient(circle, #ffcc00, #ff6600);
-            border-radius: 50%;
+        /* Star Background */
+        body::before {
+            content: '';
             position: absolute;
-            top: 20%;
-            left: 40%;
-            animation: planetOrbit 8s linear infinite;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://cdn.pixabay.com/photo/2016/11/18/23/29/background-1839131_960_720.png') repeat;
+            animation: stars 50s linear infinite;
+            z-index: -1;
         }
 
-        @keyframes planetOrbit {
-            0% { transform: rotate(0deg) translateX(50px) rotate(0deg); }
-            100% { transform: rotate(360deg) translateX(50px) rotate(-360deg); }
+        @keyframes stars {
+            from { background-position: 0 0; }
+            to { background-position: 10000px 10000px; }
+        }
+
+        /* Header */
+        header {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            box-shadow: 0px 4px 6px rgba(255, 255, 255, 0.2);
+        }
+
+        .subtext {
+            font-size: 1.2rem;
+            color: #aaa;
+        }
+
+        /* Content Cards */
+        .card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            margin: 15px auto;
+            border-radius: 10px;
+            max-width: 500px;
+            box-shadow: 0px 4px 8px rgba(255, 255, 255, 0.2);
         }
 
         /* Button */
         button {
-            padding: 15px;
-            background: rgba(0, 191, 255, 0.8);
+            padding: 12px 20px;
+            background: #6c5ce7;
             color: white;
             border: none;
-            border-radius: 10px;
-            font-size: 1rem;
+            border-radius: 5px;
+            margin-top: 15px;
             cursor: pointer;
+            font-size: 1rem;
             transition: 0.3s;
-            margin-top: 20px;
-            box-shadow: 0 0 10px cyan;
+            display: block;
+            width: 100%;
         }
 
         button:hover {
-            background: #00ffff;
+            background: #a29bfe;
             transform: scale(1.1);
-            box-shadow: 0 0 20px cyan;
+        }
+
+        /* Footer */
+        footer {
+            margin-top: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 0.9rem;
+        }
+
+        /* Hide resources section initially */
+        #resources {
+            display: none;
         }
     </style>
 </head>
 <body>
-    <div class="stars"></div>
-    <div class="planet"></div>
-    <header>Welcome.... 🚀</header>
-    <p>yoooo.</p>
-    <button onclick="alert('Warp Drive Activated!')">Engage Warp Drive</button>
+    <header>
+        <h1>Welcome</h1>
+        <p class="subtext">✨ Exploring the Cosmos ✨</p>
+    </header>
+
+    <main>
+        <section class="card">
+            <h2>Click the Button Below!</h2>
+            <button id="navigateBtn">Launch 🚀</button>
+            <p id="interactiveText">👀</p>
+        </section>
+
+        <section class="card">
+            <h2>About Me</h2>
+            <p>Lost in space... 🚀</p>
+        </section>
+
+        <!-- Hidden section for resources -->
+        <section class="card" id="resources">
+            <h2>Resources</h2>
+            <p>Access your study materials below! 📚</p>
+
+            <!-- Link to DPP Folder -->
+            <button onclick="window.open('https://drive.google.com/drive/folders/1mClcQjoHDLT1XGc0-Kai6Z3TLkXASBpC?usp=drive_link', '_blank')">📄 DPPs</button>
+
+            <!-- Link to Notes Folder -->
+            <button onclick="window.open('https://drive.google.com/drive/folders/1mBuJiM2KWkbbz3R32EIXQVUZStMDWXA8?usp=drive_link', '_blank')">📚 Notes</button>
+
+            <!-- Link to Videos Folder -->
+            <button onclick="window.open('https://drive.google.com/drive/folders/1m-xUC1UHqq5G0OWLTErnin67k9flxfE2?usp=drive_link', '_blank')">🎥 Lectures</button>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 | Created with ❤️ by m4nsii</p>
+    </footer>
+
+    <!-- Internal JavaScript -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const navigateBtn = document.getElementById("navigateBtn");
+            const interactiveText = document.getElementById("interactiveText");
+            const resourcesSection = document.getElementById("resources");
+
+            navigateBtn.addEventListener("click", function() {
+                interactiveText.textContent = "Warping to Resources! 🌌";
+                navigateBtn.textContent = "Engage!";
+                navigateBtn.style.backgroundColor = "#d63031";
+
+                // Show resources section
+                resourcesSection.style.display = "block";
+            });
+        });
+    </script>
 </body>
 </html>
